@@ -1,0 +1,2 @@
+# declider.github.io
+triangWide
