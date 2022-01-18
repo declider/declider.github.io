@@ -3,15 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>onRecords</title>
-    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <pre id="readout">Жду</pre>
+    <div id='rules'>Заказать фильм можно в чате Твича через знак доллара. Например: $Оно. Только для сабов!</div>
+    <div id="table"></div>
     <script>
-      grist.ready();
-      grist.onRecords(function(records) {
-        document.getElementById('readout').innerHTML = JSON.stringify(records, null, 2);
-      });
+      const table = document.getElementById("table");
+
+      function addElement () {
+      
+      	var row = document.createElement("div")
+        row.className = "row"
+
+        var card = document.createElement("div")
+        card.className = "card"
+
+        var nickname = document.createElement("div");
+        nickname.className = "nickname"
+        nickname.innerText = 'declider'
+        
+        var order = document.createElement("div");
+        order.className = "order"
+        order.innerText = 'меня как-то странно, и выносливость и сила по 40 лвл, хз как я так бялть'
+        
+        var time = document.createElement("div");
+        time.className = "time"
+        time.innerText = '15:46 01.02.3021'
+
+        row.appendChild(nickname)
+        row.appendChild(time)
+        
+        card.appendChild(row)
+        card.appendChild(order)
+
+        table.appendChild(card);
+      }
+      // grist.ready();
+      // grist.onRecords(function(records) {
+      //   document.getElementById('readout').innerHTML = JSON.stringify(records, null, 2);
+      // });
+      addElement();
+      addElement();
+      addElement();
+      addElement();
+      addElement();
+      addElement();
+      addElement();
+      addElement();
     </script>
   </body>
 </html>
