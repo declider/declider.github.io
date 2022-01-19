@@ -67,36 +67,10 @@
 
       grist.ready();
       grist.onRecords(function(records) {
-        console.log(records)
-
-        for (var key in records) {
-          addElement(key['Nickname'], key['Order'], key['Time']);
-        }
-
-        let number = Math.floor(Math.random() * 5);
-
-        if (number==0) {
-
-          var imgs = [
-            'https://cdn.7tv.app/emote/61b24efe15b3ff4a5bba33ba/4x',//Подпивкович
-            'https://cdn.7tv.app/emote/60ae7b00c4b981d367cd0123/4x',//apuband
-            'https://cdn.7tv.app/emote/60b1314387e94b0267f8d529/4x',//widecycle
-            'https://cdn.7tv.app/emote/60ed5e86741d620b760ebb65/4x',//соообака
-            'https://cdn.7tv.app/emote/61422765962a609048649063/4x',//nuahule
-            'https://cdn.7tv.app/emote/6135f6331bb4598fbdfa48a6/4x',//NDIDIII
-            'https://cdn.7tv.app/emote/611b79ed62a016377dd9294c/4x',//jagajaga
-            'https://cdn.7tv.app/emote/612930233bf9791535a8efbd/4x',//redeye
-            'https://cdn.7tv.app/emote/60ae49cb9986a003495586bc/4x',//треугольник ебать
-            // 'https://cdn.7tv.app/emote/60ae6b4486fc40d488d0b324/4x',//aliengroup
-            'https://cdn.7tv.app/emote/616682415b8b7ab6691f9682/4x'//caaaat
-          ]
-
-          var img = document.createElement('img')
-          var item = imgs[Math.floor(Math.random()*imgs.length)];
-          img.src = item
-          img.setAttribute('id','img')
-          document.body.appendChild(img)
-        }
+        var key = records[0]
+        var aaa = document.createElement('div')
+        aaa.innerText = key
+        table.appendChild(aaa)
       })
 
       
