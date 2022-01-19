@@ -71,6 +71,10 @@
         var aaa = document.createElement('div')
         aaa.innerText = key['Order']
         table.appendChild(aaa)
+        
+        aaa = document.createElement('div')
+        aaa.innerText = JSON.stringify(key)
+        table.appendChild(aaa)
       })
 
       
