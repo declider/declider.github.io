@@ -67,14 +67,25 @@
 
       grist.ready();
       grist.onRecords(function(records) {
-        var key = records[0]
-        var aaa = document.createElement('div')
-        aaa.innerText = key['Order']
-        table.appendChild(aaa)
+//         var key = records[0]
+//         var aaa = document.createElement('div')
+//         aaa.innerText = key['Order']
+//         table.appendChild(aaa)
+        const objects = records
+        for (const property in objects) {
+          var aaa = document.createElement('div')
+          aaa.innerText = JSON.stringify(property)
+          table.appendChild(aaa)
+          
+          var aaa = document.createElement('div')
+          aaa.innerText = JSON.stringify(objects['property'])
+          table.appendChild(aaa)
+        }
+//         aaa = document.createElement('div')
+//         aaa.innerText = JSON.stringify(key)
+//         table.appendChild(aaa)
         
-        aaa = document.createElement('div')
-        aaa.innerText = JSON.stringify(key)
-        table.appendChild(aaa)
+        
       })
 
       
