@@ -58,8 +58,10 @@
 
       grist.ready();
       grist.onRecords(function(records) {
+        console.log(records)
 
         for (var key in records) {
+          console.log(key)
           addElement(key['Nickname'], key['Order'], key['Time'])
         }
 
