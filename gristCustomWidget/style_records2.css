@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Open+Sans:wght@300;400;500&family=Roboto+Condensed:wght@300;400&display=swap');
+
+body {
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    /* font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400; */
+    
+    -webkit-font-smoothing: antialiased;
+}
+
+
+#img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 400px;
+}
+
+.card {
+  border-radius: 2px;
+  margin: 10px auto 10px auto;
+  min-width: 400px;
+  max-width: 600px;
+  position: relative;
+  yborder-bottom: 2px solid #f51c40;
+}
+
+.card:after {
+  content : "";
+  position: absolute;
+  right    : 25%;
+  x-index: 100;
+  top  : 100%;
+  width  : 50%;
+  height   : 1px;  /* or 100px */
+  background: #555;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.nickname, .time, .order {
+    vertical-align: top;
+    margin: auto;
+    vertical-align: center;
+    border-radius: 2px;
+    color: black;
+}
+
+.nickname {
+  margin-left: 10px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  font-size: 12pt;
+}
+
+.time {
+  margin-right: 10px;
+  margin-top: 8px;
+  font-size: 11pt;
+}
+
+.order {
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  font-size: 14pt;
+  overflow: hidden;
+  padding: 1px;
+}
