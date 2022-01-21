@@ -57,7 +57,13 @@
 
       grist.ready();
       grist.onRecords(function(records) {
+        
+        let img0 = document.getElementsByTagName('img')[0]
+        if (img0 != null) {
+          document.body.removeChild(img0);
+        }
 
+        table.innerHTML = ''
         for (var key in records) {
           addElement(records[key]['Nickname'], records[key]['Order'], records[key]['Time']);
         }
