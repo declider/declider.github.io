@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Open+Sans:wght@300;400;500&family=Roboto+Condensed:wght@300;400&display=swap');
 
 body {
-    /* background-color: white; */
+    background-color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     /* font-family: 'Roboto Condensed', sans-serif;
@@ -30,7 +30,8 @@ body {
 .card:after {
   content : "";
   position: absolute;
-  right    : 25%;
+  /* right    : 25%; */
+  left: 0px;
   x-index: 100;
   top  : 100%;
   width  : 75%;
@@ -53,26 +54,25 @@ body {
 }
 
 .nickname {
-  margin-left: 10px;
+  margin-left: 0px;
   margin-top: 1px;
   margin-bottom: 2px;
   font-size: 12pt;
 }
 
 .time {
-  margin-right: 10px;
+  margin-right: 0px;
   margin-top: 8px;
   font-size: 11pt;
 }
 
 .order {
-  margin-bottom: 8px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
   text-align: left;
   vertical-align: middle;
   display: inline-block;
-  margin-left: 10px;
   width: calc(100% - 20px);
   font-size: 14pt;
   overflow: hidden;
