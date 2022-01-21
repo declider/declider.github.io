@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Open+Sans:wght@300;400;500&family=Roboto+Condensed:wght@300;400&display=swap');
 
 body {
-    background-color: white;
+    /* background-color: white; */
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     /* font-family: 'Roboto Condensed', sans-serif;
@@ -33,9 +33,9 @@ body {
   right    : 25%;
   x-index: 100;
   top  : 100%;
-  width  : 50%;
+  width  : 75%;
   height   : 1px;  /* or 100px */
-  background: #555;
+  background: black;
 }
 
 .row {
