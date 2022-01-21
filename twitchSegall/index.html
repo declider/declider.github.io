@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Тайтл</title>
+  </head>
+  <body>
+    <div id='table'>Это типа текст</div>
+    <script>
+      function addElements(listo) {
+        let results = listo['results']
+        for (var key in results) {
+          let nicknameValue = results[key]['Nickname']
+          let orderValue = results[key]['Order']
+          let timeValue = results[key]['Time']
+
+          var row = document.createElement("div")
+          row.className = "row"
+
+          var card = document.createElement("div")
+          card.className = "card"
+
+          var nickname = document.createElement("div");
+          nickname.className = "nickname"
+          nickname.innerText = nicknameValue
+          
+          var order = document.createElement("div");
+          order.className = "order"
+          order.innerText = orderValue
+          
+          var time = document.createElement("div");
+          time.className = "time"
+          time.innerText = timeValue
+
+          row.appendChild(nickname)
+          row.appendChild(time)
+
+          card.appendChild(row)
+          card.appendChild(order)
+
+          table.appendChild(card)
+        }
+      }
+
+      const Url = "https://api.baserow.io/api/database/rows/table/44435/?user_field_names=true"
+      const Api = "w7AGK60wWcImtwAj0YIcUEvkz4TnEI5G"
+
+      const othePram = {
+        headers: {
+          "Authorization": "Token "+Api
+        }
+      }
+
+      fetch(Url,othePram)
+      .then(data=>{return data.json()})
+      .then(res=>{addElements(res)})
+      .catch(error=>console.log(error))
+
+    </script>
+  </body>
+</html>
+
+
