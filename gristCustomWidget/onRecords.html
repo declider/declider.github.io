@@ -42,28 +42,37 @@
         time.className = "time"
         time.innerText = timeValue
 
-        row.appendChild(nickname)
-        row.appendChild(time)
+        var div = document.createElement("div");
+        div.className = "block"
         
-        card.appendChild(row)
-        card.appendChild(order)
+        div.appendChild(nickname)
+        div.appendChild(time)
 
+        row.appendChild(order)
+        row.appendChild(div)
+
+        card.appendChild(row)
+        
         table.appendChild(card);
 
       }
 
 
+      // addElement('declider','Некий заказ 2006','15:35 01.12')
+      // addElement('LEHA_____________________','Некий заказ 2006','15:35 21.11')
+      // addElement('dasdjjkl','А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А ','15:35 21.11')
 
 
       grist.ready();
       grist.onRecords(function(records) {
-        
+
         let img0 = document.getElementsByTagName('img')[0]
         if (img0 != null) {
           document.body.removeChild(img0);
         }
 
         table.innerHTML = ''
+
         for (var key in records) {
           addElement(records[key]['Nickname'], records[key]['Order'], records[key]['Time']);
         }
