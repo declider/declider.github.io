@@ -6,10 +6,14 @@ body {
     font-weight: 400;
     /* font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400; */
-    
     -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
 
 #img {
   margin-left: auto;
