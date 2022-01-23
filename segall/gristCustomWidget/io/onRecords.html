@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>onRecords</title>
+    <link rel="stylesheet" href="style_records.css">
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+  </head>
+  <body>
 
+    <div id="table"></div>
+    <script>
+      const table = document.getElementById("table");
+
+      function addElement (nicknameValue, orderValue, timeValue) {
+        
+        console.log(nicknameValue)
+
+        var row = document.createElement("div")
+        row.className = "row"
+
+        var card = document.createElement("div")
+        card.className = "card"
+
+        var nickname = document.createElement("div");
+        nickname.className = "nickname"
+        nickname.innerText = nicknameValue
+        
+        var order = document.createElement("div");
+        order.className = "order"
+        order.innerText = orderValue
+        
+        var time = document.createElement("div");
+        time.className = "time"
+        time.innerText = timeValue
+
+        var div = document.createElement("div");
+        div.className = "block"
+        
+        row.appendChild(nickname)
+        row.appendChild(time)
+        
+        card.appendChild(row)
+        card.appendChild(order)
+        table.appendChild(card);
+
+      }
+
+
+      grist.ready();
+      grist.onRecords(function(records) {
+
+        let img0 = document.getElementsByTagName('img')[0]
+        if (img0 != null) {
+          document.body.removeChild(img0);
+        }
+
+        table.innerHTML = ''
+
+        for (var key in records) {
+          addElement(records[key]['Nickname'], records[key]['Order'], records[key]['Time']);
+        }
+      })
+
+      
+      
+    </script>
+  </body>
+</html>
