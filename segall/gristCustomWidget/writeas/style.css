@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap');
+
+body {
+/*     background-color: #181818; */
+    background-color: transparent;
+    font-weight: 450;
+    font-family: 'Roboto',sans-serif;
+}
+
+#rules {
+  background-color: #5e2da7;
+  font-family: 'Roboto';
+  margin: 10px auto 10px auto;
+  min-width: 400px;
+  max-width: 600px;
+  border-radius: 10px 10px 2px 2px;
+  color: #CACACA;
+}
+
+#about {
+  padding-top: 5px;
+  font-size: 18pt;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+  text-align: center;
+}
+
+#s {
+  font-size: 11pt;
+  background-color: #181818;
+  border-radius: 10px 10px 0px 0px;
+  margin-top: 5px;
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#z {
+  text-align: left;
+  flex: 50%;
+}
+
+#e {
+  text-align: right;
+  flex: 50%;
+  color: #cacacab4;
+}
+
+#img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 400px;
+}
+
+.card {
+  background-color: #383838;
+  border-radius: 2px;
+  margin: 10px auto 10px auto;
+  min-width: 400px;
+  max-width: 600px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nickname, .time, .order {
+    vertical-align: top;
+    font-family: 'Roboto',sans-serif;
+    margin: auto;
+    vertical-align: center;
+    border-radius: 2px;
+}
+
+.nickname {
+  color: #CACACA;
+  margin-left: 10px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  font-weight: 500;
+  font-size: 15pt;
+  line-height: 1.6;
+}
+
+.time {
+  color: #CACACA;
+  margin-right: 10px;
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.order {
+  background-color: #242424;
+  color: #CACACA;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  font-weight: 300;
+  margin-left: 10px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  width: calc(100% - 20px);
+  font-size: 12pt;
+  overflow: hidden;
+  padding: 1px;
+}
