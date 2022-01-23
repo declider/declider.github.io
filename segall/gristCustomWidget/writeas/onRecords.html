@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>onRecords</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+  </head>
+  <body>
+<!--     <div id='rules'>
+      <div id='about'>
+        Платные подписчики могут делать заказы в Twitch чате, написав свой заказ после нужного знака.<br>
+        <div id="s">
+          <div id="z">Заказ фильмов - через $<br>Заказ игр - через %</div>
+          <div id="e">$Лепрекон 8<br>%Рога и Копыта</div>
+        </div>
+      </div>
+    </div> -->
+    <div id="table"></div>
+    <script>
+      const table = document.getElementById("table");
+
+      function addElement (nicknameValue, orderValue, timeValue) {
+        
+        console.log(nicknameValue)
+
+        var row = document.createElement("div")
+        row.className = "row"
+
+        var card = document.createElement("div")
+        card.className = "card"
+
+        var nickname = document.createElement("div");
+        nickname.className = "nickname"
+        nickname.innerText = nicknameValue
+        
+        var order = document.createElement("div");
+        order.className = "order"
+        order.innerText = orderValue
+        
+        var time = document.createElement("div");
+        time.className = "time"
+        time.innerText = timeValue
+
+        var div = document.createElement("div");
+        div.className = "block"
+        
+        div.appendChild(nickname)
+        div.appendChild(time)
+
+        row.appendChild(order)
+        row.appendChild(div)
+
+        card.appendChild(row)
+        
+        table.appendChild(card);
+
+      }
+
+
+      // addElement('declider','Некий заказ 2006','15:35 01.12')
+      // addElement('LEHA_____________________','Некий заказ 2006','15:35 21.11')
+      // addElement('dasdjjkl','А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А ','15:35 21.11')
+
+
+      grist.ready();
+      grist.onRecords(function(records) {
+
+        let img0 = document.getElementsByTagName('img')[0]
+        if (img0 != null) {
+          document.body.removeChild(img0);
+        }
+
+        table.innerHTML = ''
+
+        for (var key in records) {
+          addElement(records[key]['Nickname'], records[key]['Order'], records[key]['Time']);
+        }
+
+        let number = Math.floor(Math.random() * 5);
+
+        if (number==0) {
+
+          var imgs = [
+            'https://cdn.7tv.app/emote/61b24efe15b3ff4a5bba33ba/4x',//Подпивкович
+            'https://cdn.7tv.app/emote/60ae7b00c4b981d367cd0123/4x',//apuband
+            'https://cdn.7tv.app/emote/60b1314387e94b0267f8d529/4x',//widecycle
+            'https://cdn.7tv.app/emote/60ed5e86741d620b760ebb65/4x',//соообака
+            'https://cdn.7tv.app/emote/61422765962a609048649063/4x',//nuahule
+            'https://cdn.7tv.app/emote/6135f6331bb4598fbdfa48a6/4x',//NDIDIII
+            'https://cdn.7tv.app/emote/611b79ed62a016377dd9294c/4x',//jagajaga
+            'https://cdn.7tv.app/emote/612930233bf9791535a8efbd/4x',//redeye
+            'https://cdn.7tv.app/emote/60ae49cb9986a003495586bc/4x',//треугольник ебать
+            // 'https://cdn.7tv.app/emote/60ae6b4486fc40d488d0b324/4x',//aliengroup
+            'https://cdn.7tv.app/emote/616682415b8b7ab6691f9682/4x'//caaaat
+          ]
+
+          var img = document.createElement('img')
+          var item = imgs[Math.floor(Math.random()*imgs.length)];
+          img.src = item
+          img.setAttribute('id','img')
+          document.body.appendChild(img)
+        }
+      })
+
+      
+      
+    </script>
+  </body>
+</html>
