@@ -8,7 +8,7 @@ body {
     font-weight: 400; */
     -webkit-font-smoothing: antialiased;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 }
 
 /* body::-webkit-scrollbar {
