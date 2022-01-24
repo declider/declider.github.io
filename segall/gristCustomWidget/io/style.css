@@ -6,6 +6,26 @@ body {
     font-family: 'Roboto',sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CACACA;
+}
+
 #rules {
   background-color: #5e2da7;
   font-family: 'Roboto';
