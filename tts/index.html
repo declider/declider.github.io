@@ -3,11 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Тест</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <audio controls>
-        <source src="sounds/mcEat.mp3">
-        <source src="sounds/rezero.mp3">
+        <source src="mcEat.mp3" type="audio/ogg">
+        <source src="rezero.mp3" type="audio/mpeg">
     </audio>
+    <script>
+        window.onload = function() {
+            var fs = require('fs');
+            var files = fs.readdirSync('sounds/');
+            console.log(files);
+        };
+    </script>
   </body>
 </html>
