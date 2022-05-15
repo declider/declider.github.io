@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Звуки TTS</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="pin">Текст звука можно копировать простым нажатием на его название.</div>
+    <div id="table"></div>
+    <script>
+        const table = document.getElementById("table")
+        const pin = document.getElementById("pin")
+
+        function mouseover() {
+            let target = event.target || event.srcElement
+            text = "{"+target.innerHTML+"}"
+            target.innerHTML = text
+        }
+
+        function mouseout() {
+            let target = event.target || event.srcElement
+            text = target.innerHTML.replace("{",'').replace("}",'')
+            target.innerHTML = text
+        }
+
+        function copy() {
+            clearTimeout(timeout);
+            pin.style.display = "block"
+            let target = event.target || event.srcElement
+            let range = document.createRange()
+            range.selectNode(target);
+            window.getSelection().removeAllRanges()
+            window.getSelection().addRange(range)
+            document.execCommand("copy")
+            window.getSelection().removeAllRanges()
+            pin.innerHTML = "Текст скопирован!"
+            timeout = setTimeout(function() {
+                pin.style.display = "none"
+                pin.innerHTML = "Текст звука можно копировать простым нажатием на его название."
+            }, 3000);
+        }
+
+        function load() {
+
+            timeout = setTimeout(function() {
+                pin.style.display = 'none'
+            }, 10000)
+
+            let urlo = "https://api.baserow.io/api/database/rows/table/64649/?user_field_names=true"
+
+            let response = fetch(urlo,{
+                method: "GET",
+                headers: {
+                    "Authorization": "Token qk6pE06HcUKFGTVGbsiboQ1IUESBB2Cx" //Read Only Api Key
+                }
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                return result['results'][0]['Sound File']
+            })
+
+            const getListo = () => {
+                response.then((listo) => {
+                    listo.forEach(element => {
+                        var row = document.createElement("div")
+                        row.className = "row"
+                        row.style.margin = "20px"
+
+                        var sound = document.createElement("div")
+                        sound.className = "sound"
+                        text = element['visible_name'].replace(".mp3","").replace(".wav","")
+                        sound.innerText = text
+                        sound.onmouseover = mouseover
+                        sound.onmouseout = mouseout
+                        sound.onclick = copy
+                        
+                        var file = document.createElement("audio")
+                        file.className = "file"
+                        file.type = 'audio/mpeg'
+                        file.controls = 'controls'
+                        file.src = element['url']
+                        
+                        row.appendChild(sound)
+                        row.appendChild(file)
+
+                        table.appendChild(row)
+                    })
+                })
+            }
+
+            getListo()
+        }
+
+        window.onload = load
+    </script>
+    </body>
+</html>
