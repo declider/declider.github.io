@@ -73,6 +73,7 @@
                         sound.className = "sound"
                         text = element['visible_name'].replace(".mp3","").replace(".wav","")
                         sound.innerText = text
+                        sound.volume = 0.5
                         sound.onmouseover = mouseover
                         sound.onmouseout = mouseout
                         sound.onclick = copy
